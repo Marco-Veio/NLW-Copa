@@ -4,3 +4,4 @@ node_modules
 .history
 **/ERD.svg
 **/*.db
+**/*.db-journal

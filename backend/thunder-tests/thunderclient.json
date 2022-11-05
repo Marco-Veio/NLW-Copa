@@ -1,0 +1,101 @@
+[
+  {
+    "_id": "f663c36a-7b14-4abd-835f-2cb39c0d1c23",
+    "colId": "07e6c806-2060-4611-a72c-c3736f1d7447",
+    "containerId": "",
+    "name": "Create",
+    "url": "{{URL}}/pools",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-11-05T02:28:18.692Z",
+    "modified": "2022-11-05T02:35:48.677Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"Bolão do Marcão\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "71eef121-ee2d-49bf-b0c2-ad27aeef1c56",
+    "colId": "07e6c806-2060-4611-a72c-c3736f1d7447",
+    "containerId": "",
+    "name": "Count",
+    "url": "{{URL}}/pools/count",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-11-05T02:39:30.741Z",
+    "modified": "2022-11-05T02:39:51.813Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "c7d63c1c-1d5e-41c7-9c4c-422ad799420e",
+    "colId": "0e5dbb1b-45c6-462b-9d02-dd5ceb42561f",
+    "containerId": "",
+    "name": "Create",
+    "url": "{{URL}}/users",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-11-05T02:39:56.757Z",
+    "modified": "2022-11-05T02:40:54.192Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"Bolão do Marcão\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "e3107651-9fae-44f7-a86b-db47319165dc",
+    "colId": "0e5dbb1b-45c6-462b-9d02-dd5ceb42561f",
+    "containerId": "",
+    "name": "Count",
+    "url": "{{URL}}/users/count",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-11-05T02:39:56.758Z",
+    "modified": "2022-11-05T02:40:09.535Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "4ed9922f-4525-4d80-8456-1d528543be72",
+    "colId": "c83dc958-3c1e-4e75-82f0-7d1986dee13e",
+    "containerId": "",
+    "name": "Create",
+    "url": "{{URL}}/guesses",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-11-05T02:41:02.016Z",
+    "modified": "2022-11-05T02:41:19.893Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"title\": \"Bolão do Marcão\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "b029ff1b-4840-49c3-826b-0e2e43cbd909",
+    "colId": "c83dc958-3c1e-4e75-82f0-7d1986dee13e",
+    "containerId": "",
+    "name": "Count",
+    "url": "{{URL}}/guesses/count",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-11-05T02:41:02.017Z",
+    "modified": "2022-11-05T02:41:12.520Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]

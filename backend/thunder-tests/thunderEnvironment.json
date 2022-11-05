@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "00ac1110-7cca-444a-8d54-306c549770fe",
+    "name": "NLWCopa",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-11-05T02:27:43.084Z",
+    "modified": "2022-11-05T02:27:58.282Z",
+    "data": [
+      {
+        "name": "URL",
+        "value": "http://localhost:3333"
+      }
+    ]
+  }
+]
