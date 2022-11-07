@@ -32,18 +32,20 @@ export function Participants({ participants, count }: Props) {
           </Avatar>
         ))}
 
-      <Center
-        w={8}
-        h={8}
-        bgColor="gray.700"
-        rounded="full"
-        borderWidth={1}
-        borderColor="gray.800"
-      >
-        <Text color="gray.100" fontSize="xs" fontFamily="medium">
-          {count ? `+${count}` : 0}
-        </Text>
-      </Center>
+      {count > 4 ?? (
+        <Center
+          w={8}
+          h={8}
+          bgColor="gray.700"
+          rounded="full"
+          borderWidth={1}
+          borderColor="gray.800"
+        >
+          <Text color="gray.100" fontSize="xs" fontFamily="medium">
+            {count ? `+${count - 4}` : 0}
+          </Text>
+        </Center>
+      )}
     </HStack>
   );
 }
