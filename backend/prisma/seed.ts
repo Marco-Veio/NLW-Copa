@@ -7,14 +7,14 @@ async function main() {
     data: {
       email: "john.doe@gmail.com",
       name: "John Doe",
-      avaterUrl: "https://github.com/marco-veio.png",
+      avatarUrl: "https://github.com/marco-veio.png",
     },
   });
 
-  const pool = await prisma.pool.create({
+  const poll = await prisma.poll.create({
     data: {
-      title: "Pool 1",
-      code: "pool1",
+      title: "Poll 1",
+      code: "poll1",
       ownerId: user.id,
 
       participants: {
@@ -46,9 +46,9 @@ async function main() {
 
           participant: {
             connect: {
-              poolId_userId: {
+              pollId_userId: {
                 userId: user.id,
-                poolId: pool.id,
+                pollId: poll.id,
               },
             },
           },

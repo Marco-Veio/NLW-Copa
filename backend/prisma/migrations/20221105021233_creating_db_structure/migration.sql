@@ -3,16 +3,16 @@ CREATE TABLE "User" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "avaterUrl" TEXT,
+    "avatarUrl" TEXT,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- CreateTable
 CREATE TABLE "Participant" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "poolId" TEXT NOT NULL,
+    "pollId" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
-    CONSTRAINT "Participant_poolId_fkey" FOREIGN KEY ("poolId") REFERENCES "Pool" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "Participant_pollId_fkey" FOREIGN KEY ("pollId") REFERENCES "Poll" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "Participant_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
@@ -38,18 +38,18 @@ CREATE TABLE "Guess" (
 
 -- RedefineTables
 PRAGMA foreign_keys=OFF;
-CREATE TABLE "new_Pool" (
+CREATE TABLE "new_Poll" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "title" TEXT NOT NULL,
     "code" TEXT NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "ownerId" TEXT,
-    CONSTRAINT "Pool_ownerId_fkey" FOREIGN KEY ("ownerId") REFERENCES "User" ("id") ON DELETE SET NULL ON UPDATE CASCADE
+    CONSTRAINT "Poll_ownerId_fkey" FOREIGN KEY ("ownerId") REFERENCES "User" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
-INSERT INTO "new_Pool" ("code", "createdAt", "id", "title") SELECT "code", "createdAt", "id", "title" FROM "Pool";
-DROP TABLE "Pool";
-ALTER TABLE "new_Pool" RENAME TO "Pool";
-CREATE UNIQUE INDEX "Pool_code_key" ON "Pool"("code");
+INSERT INTO "new_Poll" ("code", "createdAt", "id", "title") SELECT "code", "createdAt", "id", "title" FROM "Poll";
+DROP TABLE "Poll";
+ALTER TABLE "new_Poll" RENAME TO "Poll";
+CREATE UNIQUE INDEX "Poll_code_key" ON "Poll"("code");
 PRAGMA foreign_key_check;
 PRAGMA foreign_keys=ON;
 
@@ -57,4 +57,4 @@ PRAGMA foreign_keys=ON;
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Participant_poolId_userId_key" ON "Participant"("poolId", "userId");
+CREATE UNIQUE INDEX "Participant_pollId_userId_key" ON "Participant"("pollId", "userId");

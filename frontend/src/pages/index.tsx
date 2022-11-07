@@ -10,7 +10,7 @@ import iconCheckImage from "../assets/icon-check.svg";
 import { api } from "../lib/axios";
 
 interface Props {
-  poolCount: number;
+  pollCount: number;
   guessCount: number;
   userCount: number;
 }
@@ -18,10 +18,10 @@ interface Props {
 export default function Home(props: Props) {
   const [name, setName] = useState("");
 
-  function createPool(event: FormEvent) {
+  function createPoll(event: FormEvent) {
     event.preventDefault();
     api
-      .post("/pools", {
+      .post("/polls", {
         title: name,
       })
       .then((response) => {
@@ -56,7 +56,7 @@ export default function Home(props: Props) {
           </strong>
         </div>
 
-        <form className="mt-10 flex gap-2" onSubmit={createPool}>
+        <form className="mt-10 flex gap-2" onSubmit={createPoll}>
           <input
             className="flex-1 px-6 py-4 rounded bg-gray-800 border border-gray-600 text-sm text-gray-100"
             type="text"
@@ -82,7 +82,7 @@ export default function Home(props: Props) {
           <div className="flex items-center gap-6">
             <Image src={iconCheckImage} alt="Ícone de check" />
             <div className="flex flex-col">
-              <span className="font-bold text-2xl">+{props.poolCount}</span>
+              <span className="font-bold text-2xl">+{props.pollCount}</span>
               <span>Bolões criados</span>
             </div>
           </div>
@@ -109,15 +109,15 @@ export default function Home(props: Props) {
 }
 
 export async function getStaticProps() {
-  const [pools, guesses, users] = await Promise.all([
-    api.get("pools/count"),
+  const [polls, guesses, users] = await Promise.all([
+    api.get("polls/count"),
     api.get("guesses/count"),
     api.get("users/count"),
   ]);
 
   return {
     props: {
-      poolCount: pools.data.count,
+      pollCount: polls.data.count,
       guessCount: guesses.data.count,
       userCount: users.data.count,
     },

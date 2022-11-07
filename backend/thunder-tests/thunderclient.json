@@ -4,17 +4,21 @@
     "colId": "07e6c806-2060-4611-a72c-c3736f1d7447",
     "containerId": "",
     "name": "Create",
-    "url": "{{URL}}/pools",
+    "url": "{{URL}}/polls",
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-11-05T02:28:18.692Z",
-    "modified": "2022-11-05T02:35:48.677Z",
+    "modified": "2022-11-06T04:03:31.248Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"title\": \"Bolão do Marcão\"\n}",
       "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
     },
     "tests": []
   },
@@ -23,11 +27,11 @@
     "colId": "07e6c806-2060-4611-a72c-c3736f1d7447",
     "containerId": "",
     "name": "Count",
-    "url": "{{URL}}/pools/count",
+    "url": "{{URL}}/polls/count",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-11-05T02:39:30.741Z",
-    "modified": "2022-11-05T02:39:51.813Z",
+    "modified": "2022-11-06T02:28:53.794Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -70,17 +74,21 @@
     "colId": "c83dc958-3c1e-4e75-82f0-7d1986dee13e",
     "containerId": "",
     "name": "Create",
-    "url": "{{URL}}/guesses",
+    "url": "{{URL}}/polls/{{POLL_ID}}/games/{{GAME_ID}}/guesses",
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-11-05T02:41:02.016Z",
-    "modified": "2022-11-05T02:41:19.893Z",
+    "modified": "2022-11-06T05:12:13.088Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"title\": \"Bolão do Marcão\"\n}",
+      "raw": "{\n  \"firstTeamPoints\": 2,\n  \"secondTeamPoints\": 1\n}",
       "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
     },
     "tests": []
   },
@@ -96,6 +104,127 @@
     "modified": "2022-11-05T02:41:12.520Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "554bdecd-bfc2-406c-946e-2c27e7e35bf6",
+    "colId": "1c1d35e3-0fe4-44f8-a618-12547b60ccd9",
+    "containerId": "",
+    "name": "Create",
+    "url": "{{URL}}/users",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-11-06T02:40:39.407Z",
+    "modified": "2022-11-06T03:46:22.083Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"access_token\": \"{{GOOGLE_TOKEN}}\"\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "set-env-var",
+        "custom": "json.token",
+        "action": "setto",
+        "value": "{{TOKEN}}"
+      }
+    ]
+  },
+  {
+    "_id": "86df56b2-ae2b-4606-9011-e50f61dc6968",
+    "colId": "1c1d35e3-0fe4-44f8-a618-12547b60ccd9",
+    "containerId": "",
+    "name": "Me",
+    "url": "{{URL}}/me",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-11-06T03:37:40.349Z",
+    "modified": "2022-11-06T03:39:23.352Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "16abbd8d-4459-4bf3-982e-0d26b6cd6818",
+    "colId": "07e6c806-2060-4611-a72c-c3736f1d7447",
+    "containerId": "",
+    "name": "Join",
+    "url": "{{URL}}/polls/join",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2022-11-06T04:12:41.571Z",
+    "modified": "2022-11-06T04:28:23.001Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"code\": \"poll1\"\n}",
+      "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "1fcb4f34-bba0-4241-b858-28dc80f6f560",
+    "colId": "07e6c806-2060-4611-a72c-c3736f1d7447",
+    "containerId": "",
+    "name": "List",
+    "url": "{{URL}}/polls",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-11-06T04:15:19.308Z",
+    "modified": "2022-11-06T04:15:43.584Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "e5c64a9a-6e5b-4eba-b581-80480c5de942",
+    "colId": "07e6c806-2060-4611-a72c-c3736f1d7447",
+    "containerId": "",
+    "name": "Get",
+    "url": "{{URL}}/polls/{{POLL_ID}}",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2022-11-06T04:33:04.960Z",
+    "modified": "2022-11-06T04:40:11.378Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
+    "tests": []
+  },
+  {
+    "_id": "8e87232f-dc91-41ab-9437-2007f8300b1e",
+    "colId": "68dde033-cc05-4962-8bbf-83d5f3ec095d",
+    "containerId": "",
+    "name": "List",
+    "url": "{{URL}}/polls/{{POLL_ID}}/games",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-11-06T04:39:08.295Z",
+    "modified": "2022-11-06T04:40:21.104Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "{{TOKEN}}"
+    },
     "tests": []
   }
 ]

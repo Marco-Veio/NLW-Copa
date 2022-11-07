@@ -3,6 +3,8 @@ import { maybeCompleteAuthSession } from "expo-web-browser";
 import { makeRedirectUri } from "expo-auth-session";
 import * as Google from "expo-auth-session/providers/google";
 
+import { api } from "../services/api";
+
 maybeCompleteAuthSession();
 
 interface UserProps {
@@ -26,7 +28,7 @@ export function AuthContextProvider({
   const [isUserLoading, setIsUserLoading] = useState(false);
   const [user, setUser] = useState({} as UserProps);
 
-  const [request, response, propmtAsync] = Google.useAuthRequest({
+  const [_request, response, propmtAsync] = Google.useAuthRequest({
     clientId: "",
     redirectUri: makeRedirectUri({ useProxy: true }),
     scopes: ["profile", "email"],
@@ -51,7 +53,22 @@ export function AuthContextProvider({
   }
 
   async function signInWithGoogle(access_token: string) {
-    console.log(access_token);
+    try {
+      setIsUserLoading(true);
+
+      const loginResponse = await api.post("/users", { access_token });
+      api.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${loginResponse.data.token}`;
+
+      const userResponse = await api.get("/me");
+      setUser(userResponse.data.user);
+    } catch (error) {
+      console.log(error);
+      throw error;
+    } finally {
+      setIsUserLoading(false);
+    }
   }
 
   return (

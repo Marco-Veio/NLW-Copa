@@ -5,12 +5,13 @@
     "default": true,
     "sortNum": 10000,
     "created": "2022-11-05T02:27:43.084Z",
-    "modified": "2022-11-05T02:27:58.282Z",
+    "modified": "2022-11-06T03:46:22.080Z",
     "data": [
       {
-        "name": "URL",
-        "value": "http://localhost:3333"
+        "name": "TOKEN",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTWFyY28gQXVyw6lsaW8iLCJhdmF0YXJVcmwiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS9BTG01d3UzTW1hMFJJbzNlZEFPU3d6a1RnRFZyaVgyVjNfei1EQ3RrcVVSTj1zOTYtYyIsInN1YiI6ImNsYTR0OTZhbDAwMDBmdjBjNXZjMWxlbjYiLCJpYXQiOjE2Njc3MDYzODIsImV4cCI6MTY2ODMxMTE4Mn0.gpgsRYpxJtDrBigxWYB9pSmy6v1m5NwPreZVOYhKOKg"
       }
-    ]
+    ],
+    "envFile": "../.env"
   }
 ]

@@ -1,7 +1,7 @@
 [
   {
     "_id": "07e6c806-2060-4611-a72c-c3736f1d7447",
-    "colName": "Pools",
+    "colName": "Polls",
     "created": "2022-11-05T02:28:11.334Z",
     "sortNum": 10000,
     "folders": []
@@ -18,6 +18,20 @@
     "colName": "Guesses",
     "created": "2022-11-05T02:41:02.015Z",
     "sortNum": 30000,
+    "folders": []
+  },
+  {
+    "_id": "1c1d35e3-0fe4-44f8-a618-12547b60ccd9",
+    "colName": "Auth",
+    "created": "2022-11-06T02:40:27.927Z",
+    "sortNum": 40000,
+    "folders": []
+  },
+  {
+    "_id": "68dde033-cc05-4962-8bbf-83d5f3ec095d",
+    "colName": "Games",
+    "created": "2022-11-06T04:38:50.560Z",
+    "sortNum": 50000,
     "folders": []
   }
 ]
